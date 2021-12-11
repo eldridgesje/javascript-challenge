@@ -17,38 +17,41 @@ function runEnter() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
-  // Select the input element and get the raw HTML node
+  // Select the date input element and get the raw HTML node
   var inputDate = d3.select("#datetime");
 
-  // Select the input element and get the raw HTML node
+  // Select the city input element and get the raw HTML node
   var inputCity = d3.select("#cityloc");
 
-  // Select the input element and get the raw HTML node
+  // Select the state input element and get the raw HTML node
   var inputState = d3.select("#stateloc");
 
-  // Select the input element and get the raw HTML node
+  // Select the country input element and get the raw HTML node
   var inputCountry = d3.select("#countryloc");
 
-  // Select the input element and get the raw HTML node
+  // Select the shape input element and get the raw HTML node
   var inputShape = d3.select("#objectshape");
 
 
 
-  // Get the value property of the input element
+  // Get the value property of the date input element
   var inputValueDate = inputDate.property("value");
 
-  // Get the value property of the input element
+  // Get the value property of the city input element
   var inputValueCity = inputCity.property("value");
 
-  // Get the value property of the input element
+  // Get the value property of the state input element
   var inputValueState = inputState.property("value");
 
-  // Get the value property of the input element
+  // Get the value property of the country input element
   var inputValueCountry = inputCountry.property("value");
 
-  // Get the value property of the input element
+  // Get the value property of the shape input element
   var inputValueShape = inputShape.property("value");
 
+
+
+  // Filter the data based on each input value
   
   var filteredData = tableData;
 
@@ -88,12 +91,13 @@ function runEnter() {
   }
 
 
-  console.log(filteredData);
-
+// Connect to the table in the HTML
   var fTable = d3.select(".tData");
 
+//Clear the table
   fTable.html("");
 
+//Create a row in the table for each record in the data
   filteredData.forEach(function(date) {
  
     fTable.append("tr").html(`<td>${date.datetime}</th>

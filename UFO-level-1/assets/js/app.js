@@ -1,5 +1,3 @@
-console.log("app.js is running")
-
 // from data.js
 var tableData = data;
 
@@ -27,16 +25,16 @@ function runEnter() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
- 
+  // Filter the data based on the entered date
   var filteredData = tableData.filter(o => o.datetime === inputValue);
 
-  console.log(filteredData);
-
+  // Connect to the table in the HTML
   var fTable = d3.select(".tData");
 
+  // Clear the table
   fTable.html("");
 
+  //Add a line to the table for each record in the data
   filteredData.forEach(function(date) {
  
     fTable.append("tr").html(`<td>${date.datetime}</th>
@@ -48,5 +46,4 @@ function runEnter() {
     <td>${date.comments}</th>`)
   });
  
-
 };
