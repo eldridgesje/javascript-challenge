@@ -11,6 +11,26 @@ var form = d3.select("#form");
 button.on("click", runEnter);
 form.on("submit", runEnter);
 
+//Load initial page
+
+function startUp() {
+  // Connect to the table in the HTML
+  var fTable = d3.select(".tData");
+
+  //Add a line to the table for each record in the data
+  tableData.forEach(function(date) {
+ 
+    fTable.append("tr").html(`<td>${date.datetime}</th>
+    <td>${date.city}</th>
+    <td>${date.state}</th>
+    <td>${date.country}</th>
+    <td>${date.shape}</th>
+    <td>${date.duration}</th>
+    <td>${date.comments}</th>`)  
+})
+}
+
+
 // Complete the event handler function for the form
 function runEnter() {
 
@@ -111,3 +131,5 @@ function runEnter() {
  
 
 };
+
+startUp()
